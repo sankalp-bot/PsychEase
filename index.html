@@ -1,257 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 - Lost in Space</title>
-  <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,500" rel="stylesheet" />
-  <style>
-    @-moz-keyframes rocket-movement { 100% {-moz-transform: translate(1200px,-600px);} }
-    @-webkit-keyframes rocket-movement {100% {-webkit-transform: translate(1200px,-600px); } }
-    @keyframes rocket-movement { 100% {transform: translate(1200px,-600px);} }
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>PsychEase</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
-    @-moz-keyframes spin-earth { 100% { -moz-transform: rotate(-360deg); transition: transform 20s;  } }
-    @-webkit-keyframes spin-earth { 100% { -webkit-transform: rotate(-360deg); transition: transform 20s;  } }
-    @keyframes spin-earth{ 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); transition: transform 20s; } }
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    @-moz-keyframes move-astronaut { 100% { -moz-transform: translate(-160px, -160px);} }
-    @-webkit-keyframes move-astronaut { 100% { -webkit-transform: translate(-160px, -160px);} }
-    @keyframes move-astronaut{ 100% { transform:translate(-160px, -160px); } }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial:wght@400&display=swap" rel="stylesheet">
 
-    @-moz-keyframes rotate-astronaut { 100% { -moz-transform: rotate(-720deg);} }
-    @-webkit-keyframes rotate-astronaut { 100% { -webkit-transform: rotate(-720deg);} }
-    @keyframes rotate-astronaut{ 100% { transform:rotate(-720deg); } }
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    @-moz-keyframes glow-star {
-        40% { -moz-opacity: 0.3;}
-        90%,100% { -moz-opacity: 1; -moz-transform: scale(1.2);}
-    }
-    @-webkit-keyframes glow-star {
-        40% { -webkit-opacity: 0.3;}
-        90%,100% { -webkit-opacity: 1; -webkit-transform: scale(1.2);}
-    }
-    @keyframes glow-star{
-        40% { opacity: 0.3; }
-        90%,100% { opacity: 1; transform: scale(1.2); border-radius: 999999px; }
-    }
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
 
-    html, body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      font-family: 'Dosis', sans-serif;
-      font-weight: 300;
-      user-select: none;
-    }
-
-    .bg-purple {
-      background: url(http://salehriaz.com/404Page/img/bg_purple.png);
-      background-repeat: repeat-x;
-      background-size: cover;
-      background-position: left top;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .custom-navbar {
-      padding-top: 15px;
-    }
-
-    .brand-logo {
-      margin-left: 25px;
-      margin-top: 5px;
-      display: inline-block;
-    }
-
-    .navbar-links {
-      display: inline-block;
-      float: right;
-      margin-right: 15px;
-      text-transform: uppercase;
-    }
-
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-    }
-
-    li {
-      float: left;
-      padding: 0px 15px;
-    }
-
-    li a {
-      display: block;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      letter-spacing: 2px;
-      font-size: 12px;
-      transition: all 0.3s ease-in;
-    }
-
-    li a:hover {
-      color: #ffcb39;
-    }
-
-    .btn-request {
-      padding: 10px 25px;
-      border: 1px solid #FFCB39;
-      border-radius: 100px;
-      font-weight: 400;
-    }
-
-    .btn-request:hover {
-      background-color: #FFCB39;
-      color: #fff;
-      transform: scale(1.05);
-      box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
-    }
-
-    .btn-go-home {
-      position: relative;
-      z-index: 200;
-      margin: 15px auto;
-      width: 100px;
-      padding: 10px 15px;
-      border: 1px solid #FFCB39;
-      border-radius: 100px;
-      font-weight: 400;
-      display: block;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      letter-spacing: 2px;
-      font-size: 11px;
-      transition: all 0.3s ease-in;
-    }
-
-    .btn-go-home:hover {
-      background-color: #FFCB39;
-      color: #fff;
-      transform: scale(1.05);
-      box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
-    }
-
-    .central-body {
-      padding: 17% 5% 10% 5%;
-      text-align: center;
-    }
-
-    .objects img {
-      z-index: 90;
-      pointer-events: none;
-    }
-
-    .object_rocket {
-      z-index: 95;
-      position: absolute;
-      transform: translateX(-50px);
-      top: 75%;
-      animation: rocket-movement 200s linear infinite both running;
-    }
-
-    .object_earth {
-      position: absolute;
-      top: 20%;
-      left: 15%;
-      z-index: 90;
-    }
-
-    .object_moon {
-      position: absolute;
-      top: 12%;
-      left: 25%;
-    }
-
-    .object_astronaut {
-      animation: rotate-astronaut 200s infinite linear both alternate;
-    }
-
-    .box_astronaut {
-      z-index: 110 !important;
-      position: absolute;
-      top: 60%;
-      right: 20%;
-      animation: move-astronaut 50s infinite linear both alternate;
-    }
-
-    .image-404 {
-      position: relative;
-      z-index: 100;
-      pointer-events: none;
-    }
-
-    .stars {
-      background: url(http://salehriaz.com/404Page/img/overlay_stars.svg);
-      background-repeat: repeat;
-      background-size: contain;
-      background-position: left top;
-    }
-
-    .glowing_stars .star {
-      position: absolute;
-      border-radius: 100%;
-      background-color: #fff;
-      width: 3px;
-      height: 3px;
-      opacity: 0.3;
-    }
-
-    .glowing_stars .star:nth-child(1) { top: 80%; left: 25%; animation: glow-star 2s infinite ease-in-out alternate 1s; }
-    .glowing_stars .star:nth-child(2) { top: 20%; left: 40%; animation: glow-star 2s infinite ease-in-out alternate 3s; }
-    .glowing_stars .star:nth-child(3) { top: 25%; left: 25%; animation: glow-star 2s infinite ease-in-out alternate 5s; }
-    .glowing_stars .star:nth-child(4) { top: 75%; left: 80%; animation: glow-star 2s infinite ease-in-out alternate 7s; }
-    .glowing_stars .star:nth-child(5) { top: 90%; left: 50%; animation: glow-star 2s infinite ease-in-out alternate 9s; }
-
-    @media only screen and (max-width: 600px) {
-      .navbar-links { display: none; }
-      .custom-navbar { text-align: center; }
-      .brand-logo img { width: 120px; }
-      .box_astronaut { top: 70%; }
-      .central-body { padding-top: 25%; }
-    }
-  </style>
+  <!-- =======================================================
+  * Template Name: EasyFolio
+  * Template URL: https://bootstrapmade.com/easyfolio-bootstrap-portfolio-template/
+  * Updated: Feb 21 2025 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
-<body class="bg-purple">
-  <div class="stars">
-    <div class="custom-navbar">
-      <div class="brand-logo">
-        <img src="http://salehriaz.com/404Page/img/logo.svg" width="80px" />
-      </div>
-      <div class="navbar-links">
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/favicon.png" alt=""> 
+        <h1 class="sitename">PsychEase</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Features</a></li>
-          <li><a href="#" class="btn-request">Request A Demo</a></li>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          
+          <li><a href="#portfolio">Disorder Categories</a></li>
+          
+          
         </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://x.com/mohfw_india?lang=en" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.facebook.com/mohfw.india" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/mohfwindia/?hl=en" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://mohfw.gov.in/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row align-items-center content">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h2>Diagnosis Decoded </h2>
+            <p class="lead">DSM-5-TR Disorders Simplified</p>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
+              <a href="#portfolio" class="btn btn-primary">Jump to Diagnostics</a>
+              
+            </div>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+              <div class="stat-item">
+                <span class="stat-number">1 in 8</span>
+                <span class="stat-label">people worldwide live with a mental health disorder</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number"> > 280 M</span>
+                <span class="stat-label">people worldwide are affected by depression, making it the leading cause of disability</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">75%</span>
+                <span class="stat-label">of people with mental health conditions in low- and middle-income countries receive no treatment</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-image">
+              <img src="assets/img/img.png" alt="Portfolio Hero Image" class="img-fluid" data-aos="zoom-out" data-aos-delay="300">
+              <div class="shape-1"></div>
+              <div class="shape-2"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About</h2>
+        <div class="title-shape">
+          <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+          </svg>
+        </div>
+        
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row align-items-center">
+          <div class="col-lg-6 position-relative" data-aos="fade-right" data-aos-delay="200">
+            <div class="about-image">
+              <img src="assets/img/sera.jpeg" alt="Profile Image" class="img-fluid rounded-4">
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+            <div class="about-content">
+              <span class="subtitle">About Me</span>
+
+              <h2>Psychology Postgraduate &amp; Mental Health Advocate</h2>
+
+              <p class="lead mb-4">Hi! I’m Seraphy Ansita Bara, a 23-year-old postgraduate psychology student from Chanakya University, driven by curiosity about the human mind and passion for emotional wellbeing.</p>
+
+              <p class="mb-4">My fascination with psychology began during my medical exam prep and quickly grew into a lifelong mission. I’m especially captivated by how the brain works and the depth of mental disorders. Known for being cheerful, empathetic, and a great listener, I love being there for others—both inside and outside the classroom.</p>
+
+               <p class="mb-4">I find peace in music, nature, and the joy of cooking and baking. Psychology, to me, is more than a subject—it’s a way to connect, empower, and guide. I dream of helping students explore their identity and make confident, informed choices. Whether through counseling, research, or awareness-building, I strive to make mental health more human and accessible.
+
+</p>
+
+
+              <div class="signature mt-4">
+                <div class="signature-image">
+                  <img src="assets/img/misc/Untitled.png" alt="" class="img-fluid">
+                </div>
+                <div class="signature-info">
+                  <h4>Seraphy Bara</h4>
+                  <p>Student of Psychology</p>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    
+
+    
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Disorder Categories</h2>
+        <div class="title-shape">
+          <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+          </svg>
+        </div>
+        
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <div class="portfolio-filters-container" data-aos="fade-up" data-aos-delay="200">
+            <ul class="portfolio-filters isotope-filters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-web">Anxiety</li>
+              <li data-filter=".filter-graphics">Mood</li>
+              <li data-filter=".filter-motion">Somatic</li>
+              <li data-filter=".filter-brand">Impulse</li>
+            </ul>
+          </div>
+
+          <div class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
+
+            <div  class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src="assets/img/portfolio/1.jpeg" class="img-fluid" alt="" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href="assets/img/portfolio/1.jpeg"  href="assets/img/portfolio/1.jpeg" class="glightbox preview-link" data-gallery="portfolio-gallery-web"><i class="bi bi-eye"></i></a>
+                      <a href="Anxiety.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <span class="category">Anxiety</span>
+                  <h3>Anxiety Disorders</h3>
+                  <p>Worry, fear, panic, avoidance</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-graphics">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src="assets/img/portfolio/8.jpeg" class="img-fluid" alt="" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href="assets/img/portfolio/8.jpeg" class="glightbox preview-link" data-gallery="portfolio-gallery-graphics"><i class="bi bi-eye"></i></a>
+                      <a href="Bipolar.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <span class="category">Mood</span>
+                  <h3>Bipolar and Related Disorders</h3>
+                  <p>Mood swings, mania, depression</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-motion">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src="assets/img/portfolio/4.jpeg" class="img-fluid" alt="" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href="assets/img/portfolio/4.jpeg" class="glightbox preview-link" data-gallery="portfolio-gallery-motion"><i class="bi bi-eye"></i></a>
+                      <a href="Somatic.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <span class="category">Somatic</span>
+                  <h3>Somatic Symptom and Related Disorders</h3>
+                  <p>Physical symptoms, health anxiety</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-brand">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src="assets/img/portfolio/6.jpeg" class="img-fluid" alt="" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href="assets/img/portfolio/6.jpeg" class="glightbox preview-link" data-gallery="portfolio-gallery-brand"><i class="bi bi-eye"></i></a>
+                      <a href="Substance.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <span class="category">Impulse</span>
+                  <h3>Substance-Related and Addictive Disorders</h3>
+                  <p>Addiction, craving, withdrawal, harm</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-web">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src="assets/img/portfolio/2.jpeg" class="img-fluid" alt="" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href="assets/img/portfolio/2.jpeg" class="glightbox preview-link" data-gallery="portfolio-gallery-web"><i class="bi bi-eye"></i></a>
+                      <a href="Trauma.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <span class="category">Anxiety</span>
+                  <h3>Trauma- and Stressor-Related Disorders</h3>
+                  <p>Trauma, flashbacks, grief, stress</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-graphics">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src="assets/img/portfolio/7.jpeg" class="img-fluid" alt="" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href="assets/img/portfolio/7.jpeg" class="glightbox preview-link" data-gallery="portfolio-gallery-graphics"><i class="bi bi-eye"></i></a>
+                      <a href="Schizophrenia.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <span class="category">Mood</span>
+                  <h3>Schizophrenia Spectrum and Other Psychotic Disorders</h3>
+                  <p>Delusions, hallucinations, disorganized thinking</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-motion">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src="assets/img/portfolio/5.jpeg" class="img-fluid" alt="" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href="assets/img/portfolio/5.jpeg" class="glightbox preview-link" data-gallery="portfolio-gallery-graphics"><i class="bi bi-eye"></i></a>
+                      <a href="Dissociative.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <span class="category">Somatic</span>
+                  <h3>Dissociative Disorders</h3>
+                  <p>Memory gaps, identity changes</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-brand">
+              <div class="portfolio-card">
+                <div class="portfolio-image">
+                  <img src="assets/img/portfolio/3.jpeg" class="img-fluid" alt="" loading="lazy">
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-actions">
+                      <a href="assets/img/portfolio/3.jpeg" class="glightbox preview-link" data-gallery="portfolio-gallery-graphics"><i class="bi bi-eye"></i></a>
+                      <a href="Obsessive.html" class="details-link"><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="portfolio-content">
+                  <span class="category">Impulse</span>
+                  <h3>Obsessive-Compulsive and Related Disorders</h3>
+                  <p>Obsessions, compulsions, rituals, control</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+    
+
+    
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Seraphy Ansita Bara</strong> <span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://x.com/mohfw_india?lang=en"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.facebook.com/mohfw.india"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/mohfwindia/?hl=en"><i class="bi bi-instagram"></i></a>
+        <a href="https://mohfw.gov.in/"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="">Lokifury</a>
       </div>
     </div>
-    <div class="central-body">
-      <img class="image-404" src="http://salehriaz.com/404Page/img/404.svg" width="300px" />
-      <a href="#" class="btn-go-home">GO BACK HOME</a>
-    </div>
-    <div class="objects">
-      <img class="object_rocket" src="http://salehriaz.com/404Page/img/rocket.svg" width="40px" />
-      <div class="earth-moon">
-        <img class="object_earth" src="http://salehriaz.com/404Page/img/earth.svg" width="100px" />
-        <img class="object_moon" src="http://salehriaz.com/404Page/img/moon.svg" width="80px" />
-      </div>
-      <div class="box_astronaut">
-        <img class="object_astronaut" src="http://salehriaz.com/404Page/img/astronaut.svg" width="140px" />
-      </div>
-    </div>
-    <div class="glowing_stars">
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-    </div>
-  </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
+
 </html>
